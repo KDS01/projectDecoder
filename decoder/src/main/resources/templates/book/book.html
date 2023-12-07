@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html mxlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>book themes</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="/static/style/book.css">
+</head>
+<body>
+	<div class="container">
+		<div class="content">
+			<div class="content_img">
+        		<img src="/static/img/room1-2-960x960.jpg" />
+			</div>
+			<div class="content_info">
+				<div class="book_intro">
+					<p class="title"><span><strong>베일에 가려진 그녀, 미스터리 도난 사건</strong></span></p>
+        		</div>
+        		<div class="book-info">
+					<p class="book-infomation">
+						벌써 세 번째 도난 신고, 그리고 도난 하루 전 그 장소에서 우연히 만났던 그녀.
+						<br>
+						그녀는 나에게 옅은 미소과 함께 가볍게 인사를 건네고 사라졌다.
+						<br>
+						아무런 단서도 없지만 당신의 촉각과 감이 그녀가 범인이라는 걸 말하고 있었다.
+						<br>
+						<br>
+						지금부터 한 시간, 당신은 조사 끝에 알아 낸 그녀의 집에 몰래 들어가
+						<br>
+						사건 전날 밤 일어난 일을 밝혀내고 그녀를 잡을 수 있는 단서를 찾아내야 한다.
+					</p>
+				</div>
+				<div id="datepicker-container">
+					<div id="datepicker"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+  		$(function() {
+    	$("#datepicker").datepicker({
+      	dateFormat: 'yy-mm-dd',
+		minDate:0, // 날짜 형식 변경 (예: 2023-01-01)
+      	showButtonPanel: false,   // "오늘" 및 "닫기" 버튼 표시
+      	changeMonth: false,        // 월 변경 허용
+      	changeYear: false          // 연도 변경 허용
+    	});
+    	$("#datepicker").show();
+ //   	$("#datepicker-container").on("click", function() {
+  //    	$("#datepicker").toggle();
+    //	});
+  	});
+	</script>
+
+</body>
+</html>

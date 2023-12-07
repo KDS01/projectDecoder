@@ -1,0 +1,20 @@
+.container{
+    background-color: black;
+    align-items: center;
+    display: inline-block;
+    font-size: 5px;
+    border-left: 3rem;
+    width: 100%;
+    
+}
+.text-muted{
+    color: white!important;
+}
+.col-md-4{
+    width: 260px;
+
+}
+.footer_wrapper{
+    width: 100%;
+    background-color: black;
+}

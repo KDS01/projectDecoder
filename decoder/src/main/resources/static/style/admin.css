@@ -1,0 +1,57 @@
+.container{
+    background-color: gray;
+    color: white;
+    height: 100vh;
+    display: flex;
+    border-top: 5rem;
+}
+.admin_page_main{
+    margin: 5rem;
+    display: flex;
+    flex-direction: row;
+    height: max-content;
+    gap: 4rem;
+    align-items: center;
+}
+.admin_page_main card{
+    margin: 2rem;
+}
+.admin_name{
+    width: 200px;
+    display:inline;
+    color: white;
+}
+.template_img{
+    align-items: center;
+
+}
+.add_theme_main{
+    width: 100%;
+    display: flex;
+    align-content: stretch;
+    justify-content: center;
+
+}
+.add_theme_container{
+    background-color: gray;
+    color: white;
+    height: 100vh;
+    display: flex;
+    border-top: 5rem;
+    flex-direction: column;
+    margin-left: 123px;
+    margin-right: 123px;
+    align-items: center;
+
+}
+.main_text{
+    align-items: center;
+    margin-top: 3rem;
+}
+.theme_add_input_group{
+    margin-top: 4rem;
+}
+.theme_add_input_group .form-control {
+    width: 500px;
+    height: 50px;
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/style/admin.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Admin page</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                  관리자 메뉴
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li><a class="dropdown-item" href="#">add themes</a></li>
+                  <li><a class="dropdown-item" href="#">check book</a></li>
+                  <li><a class="dropdown-item" href="#">add manager</a></li>
+                  <li><a class="dropdown-item" href="#">fix events</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="admin_name">관리자 ***님</div>
+      </nav>
+<div class="add_theme_container"> 
+    <h1 class="main_text" style="text-align: center;">add theme</h1>
+    <div class="add_theme_main">
+        <img class="template_img" src="/static/img/template.png" alt=""/>
+    </div>
+    <div class="theme_add_input_group">
+        <form action="/admin/addtheme" method="post">
+            <div class="input-group mb-3">
+             <span class="input-group-text" id="inputGroup-sizing-default">title</span>
+             <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"name="theme_title">
+              </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">intro</span>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="theme_intro">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">info</span>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"name="theme_info">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">main_img</span>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="theme_main_img">
+                <span class="input-group-text" id="inputGroup-sizing-default">
+                    <button class="btn btn-primary" style="font-size: 9px;">
+                        이미지 첨부
+                    </button>
+                </span>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">icon_img</span>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="theme_icon_img">
+                <span class="input-group-text" id="inputGroup-sizing-default">
+                    <button class="btn btn-primary" style="font-size: 9px;">
+                        이미지 첨부
+                    </button>
+                </span>
+            </div>
+            <button class="btn btn-primary">테마 추가하기</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

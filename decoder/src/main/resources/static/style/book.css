@@ -1,0 +1,89 @@
+@charset "UTF-8";
+html, body{
+	height: 100%;
+	margin:0;
+	font-weight: 400;
+}
+p{
+	align-items: center;
+}
+.container{
+	margin:0;
+	display: flex;
+	height: 100vh;
+	max-width: 100%;
+}
+.content{
+	display: flex;
+	flex: 1;
+	flex-direction: row;
+}
+.content_img, .content_info{
+	flex: 1;
+	overflow: hidden;
+}
+.content_info{
+	display: flex;
+	flex-direction: column;
+	padding-top: 7%;
+	align-items: center;
+}
+img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.title{
+	font-size: 30px;
+}
+.book-infomation{
+	margin-top: 7%;
+	text-align: center;
+	color: rgba(40,40,40,.7);
+}
+#datepicker-container{
+	width:300px;
+	height: 300px;
+}
+#datepicker{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.ui-datepicker {
+    background-color: rgba(40,40,40,.7);
+    font-size: 18px;
+}
+.ui-datepicker-header {
+    background-color: rgba(40,40,40,.7)!important;
+    color: #fff;
+}
+.ui-datepicker .ui-datepicker-buttonpane button {
+    background-color: rgba(40,40,40,.7)!important;
+    color: #fff;
+}
+.ui-datepicker .ui-state-default{
+	background-color: rgba(40,40,40,.7);
+	color: white;
+	border: none;
+}
+.ui-datepicker .ui-datepicker table{
+	background-color: rgba(40,40,40,.7);
+	border-color: rgba(40,40,40,.7);
+}
+.ui-datepicker .ui-widget-content .ui-state-default{
+	color: #ffffff!important;
+}
+.ui-datepicker .ui-datepicker-buttonpane button {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    outline: none;
+}
+.ui-datepicker .ui-state-highlight{
+	border: none;
+	color: #ffffff;
+}
+.ui-state-default .ui-widget-content .ui-state-default{
+	color: white;
+}
