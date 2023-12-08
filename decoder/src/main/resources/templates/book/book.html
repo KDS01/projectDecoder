@@ -19,13 +19,14 @@
 
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <link rel="stylesheet" href="/static/style/book.css">
+    <link rel="stylesheet" href="/style/book.css">
 </head>
 <body>
-	<div class="container">
+	<div id="header"></div>
+	<div class="book_container">
 		<div class="content">
 			<div class="content_img">
-        		<img src="/static/img/room1-2-960x960.jpg" />
+        		<img src="/img/room1-2-960x960.jpg" />
 			</div>
 			<div class="content_info">
 				<div class="book_intro">
@@ -45,26 +46,54 @@
 						사건 전날 밤 일어난 일을 밝혀내고 그녀를 잡을 수 있는 단서를 찾아내야 한다.
 					</p>
 				</div>
+			<form action="" class="date_selector">
+				<input type="hidden" id="date_data" name="book_date">
 				<div id="datepicker-container">
 					<div id="datepicker"></div>
+					<div class="hour_selector" id="hour_button">
+						<button type="button" id="top_btn" class="btn btn-secondary">dd/mm/yy</button>
+						<button type="button" name="first_time" class="btn btn-light">10:00</button>
+						<button type="button" name="second_time"class="btn btn-light">12:00</button>
+						<button type="button" name="third_time" class="btn btn-light">14:00</button>
+						<button type="button" name="fourth_time" class="btn btn-light">16:00</button>
+						<button type="button" name="fifth_time" class="btn btn-light">18:00</button>
+						<button type="button" name="six_time" class="btn btn-light">20:00</button>
+						<button type="button" name="six_time" class="btn btn-light">22:00</button>
+					</div>
 				</div>
+			</form>
 			</div>
 		</div>
 	</div>
+	<div id="footer"></div>
 	<script>
   		$(function() {
     	$("#datepicker").datepicker({
-      	dateFormat: 'yy-mm-dd',
+      	dateFormat: 'yymmdd',
 		minDate:0, // 날짜 형식 변경 (예: 2023-01-01)
       	showButtonPanel: false,   // "오늘" 및 "닫기" 버튼 표시
       	changeMonth: false,        // 월 변경 허용
-      	changeYear: false          // 연도 변경 허용
+      	changeYear: false,
+		onSelect: function(dateText,inst){
+			$("#top_btn").html(dateText);
+		}         
     	});
     	$("#datepicker").show();
- //   	$("#datepicker-container").on("click", function() {
-  //    	$("#datepicker").toggle();
-    //	});
   	});
+
+
+//header 불러오기
+	fetch('/basic/header')
+    	.then(response => response.text())
+    	.then(data => {
+        document.getElementById('header').innerHTML = data;
+    });
+//footer 불러오기
+	fetch('/basic/footer')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('footer').innerHTML = data;
+    });
 	</script>
 
 </body>

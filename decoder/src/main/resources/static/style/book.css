@@ -3,23 +3,30 @@ html, body{
 	height: 100%;
 	margin:0;
 	font-weight: 400;
+	display:flex;
+	flex-direction: column;
 }
 p{
 	align-items: center;
 }
-.container{
-	margin:0;
+.book_container{
 	display: flex;
 	height: 100vh;
-	max-width: 100%;
+	width: 100%;
+	margin: 0px!important;
+	flex-grow: 1;
 }
 .content{
 	display: flex;
 	flex: 1;
 	flex-direction: row;
+
+}
+.content_img{
+	margin-left: -30px;
 }
 .content_img, .content_info{
-	flex: 1;
+	flex: 1.5;
 	overflow: hidden;
 }
 .content_info{
@@ -27,6 +34,19 @@ p{
 	flex-direction: column;
 	padding-top: 7%;
 	align-items: center;
+}
+.date_selector{
+	margin:30px;
+	margin-left :160px;
+	display: flex;
+	width: 100%;
+	justify-content: flex-start;
+	padding-left: 140px;
+}
+.hour_selector{
+	display: flex;
+	flex-direction: column;
+	margin-left: 15px;
 }
 img{
 	width: 100%;
@@ -44,6 +64,7 @@ img{
 #datepicker-container{
 	width:300px;
 	height: 300px;
+	display: flex;
 }
 #datepicker{
 	position: relative;

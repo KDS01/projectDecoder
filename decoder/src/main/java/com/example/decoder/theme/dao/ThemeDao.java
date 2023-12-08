@@ -30,7 +30,7 @@ public class ThemeDao {
 	};
 	public void add(Theme theme) {
 		jdbcTemplate.update(
-				"insert into theme ( title, intro, info, main_img, icon_img) values (?,?,?,?,?)",
+				"insert into projectdecoder.theme ( title, intro, info, main_img, icon_img) values (?,?,?,?,?)",
 				theme.getTitle(),
 				theme.getIntro(),
 				theme.getInfo(),
@@ -39,7 +39,7 @@ public class ThemeDao {
 				);
 	}
 	public Theme get(int id) {
-		String query="select * from theme where id=?";
+		String query="select * from projectdecoder.theme where id=?";
 		return jdbcTemplate.queryForObject(query,mapper,id);
 	}
 //	public List<Theme> getAll(){

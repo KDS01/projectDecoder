@@ -1,8 +1,8 @@
-.container{
+.footer_container{
     background-color: black;
     align-items: center;
     display: inline-block;
-    font-size: 5px;
+    font-size: 10px;
     border-left: 3rem;
     width: 100%;
     
@@ -11,7 +11,7 @@
     color: white!important;
 }
 .col-md-4{
-    width: 260px;
+    width: 80px;
 
 }
 .footer_wrapper{
