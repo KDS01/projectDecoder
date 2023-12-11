@@ -32,16 +32,14 @@ p{
 .content_info{
 	display: flex;
 	flex-direction: column;
-	padding-top: 7%;
+	padding-top: 40px;
 	align-items: center;
 }
 .date_selector{
-	margin:30px;
-	margin-left :160px;
 	display: flex;
 	width: 100%;
 	justify-content: flex-start;
-	padding-left: 140px;
+	padding-right: 160px;
 }
 .hour_selector{
 	display: flex;
@@ -107,4 +105,12 @@ img{
 }
 .ui-state-default .ui-widget-content .ui-state-default{
 	color: white;
+}
+.user_area{
+	display: flex;
+	flex-direction: row;
+}
+.user_area .mb-3{
+	width: 33.3%;
+	padding: 1rem!;
 }

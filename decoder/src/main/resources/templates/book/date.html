@@ -1,0 +1,60 @@
+<html mxlns:th="http://www.thymeleaf.org">
+<head th:fragment="dateFragmentHead	">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/style/book.css">
+</head>
+<body>
+	<div id="bookArea" th:fragment="dateFragment">
+		 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  			<link rel="stylesheet" th:href="@{/style/book.css}" />
+		<form action="" class="date_selector">
+				<div id="datepicker-container">
+					<div id="datepicker"></div>
+					<div class="hour_selector" id="hour_button">
+						<button type="button" id="top_btn" class="btn btn-secondary">dd/mm/yy</button>
+						<button type="button" name="first_time" class="btn btn-light">10:00</button>
+						<button type="button" name="second_time"class="btn btn-light">12:00</button>
+						<button type="button" name="third_time" class="btn btn-light">14:00</button>
+						<button type="button" name="fourth_time" class="btn btn-light">16:00</button>
+						<button type="button" name="fifth_time" class="btn btn-light">18:00</button>
+						<button type="button" name="six_time" class="btn btn-light">20:00</button>
+						<button type="button" name="last_time" class="btn btn-light">22:00</button>
+					</div>
+				</div>
+			</form>
+		<div class="data_area"style="display:none">
+			<input type="hidden" id="date_data_id" name="booked_theme_id" value=0>
+			<input type="hidden" id="date_data_hour" name="booked_hour">
+			<input type="hidden" id="date_data_date" name="booked_date">
+			<input type="hidden" id="date_data_hour" name="booked_hour">
+			<input type="hidden" id="date_data_name" name="booked_name">
+			<input type="hidden" id="date_data_phone" name="booked_phone">
+			<input type="hidden" id="date_data_email" name="booked_email">
+			<input type="hidden" id="date_data_count" name="booked_count">
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+  		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script>
+  		$(function() {
+    	$("#datepicker").datepicker({
+      	dateFormat: 'yy/mm/dd',
+		minDate:0,
+      	showButtonPanel: false, 
+      	changeMonth: false, 
+      	changeYear: false,
+		onSelect: function(dateText,inst){
+			$("#top_btn").html(dateText);
+			$("#date_data_date").val(dateText);
+		}         
+    	});
+    	$("#datepicker").show();
+  	});
+	$("#hour_button button").on("click", function(){
+		$("#date_data_hour").val(this.name);
+	})
+	</script>	
+</div>
+</body>
+</html>

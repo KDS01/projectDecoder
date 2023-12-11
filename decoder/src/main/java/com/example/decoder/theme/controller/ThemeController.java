@@ -53,10 +53,10 @@ public class ThemeController {
 	public String addThemePage() {
 		return "admin/addtheme";
 	}
-	@GetMapping("/book")
-	public String toBookPage() {
-		return "book/book.html";
-	}
+//	@GetMapping("/book")
+//	public String toBookPage() {
+//		return "book/book.html";
+//	}
     @PostMapping("/admin/addtheme")
     public String addTheme(
             @RequestParam("theme_title") String title,
