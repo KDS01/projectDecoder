@@ -25,24 +25,14 @@
 	 class="book_container">
 		<div class="content">
 			<div class="content_img">
-        		<img src="/img/room1-2-960x960.jpg" />
+        		<img th:src="${theme.main_img}" />
 			</div>
 			<div class="content_info">
 				<div class="book_intro">
-					<p class="title"><span><strong>베일에 가려진 그녀, 미스터리 도난 사건</strong></span></p>
+					<p class="title" th:text="${theme.intro}"><span><strong></strong></span></p>
         		</div>
         		<div class="book-info">
-					<p class="book-infomation">
-						벌써 세 번째 도난 신고, 그리고 도난 하루 전 그 장소에서 우연히 만났던 그녀.
-						<br>
-						그녀는 나에게 옅은 미소과 함께 가볍게 인사를 건네고 사라졌다.
-						<br>
-						아무런 단서도 없지만 당신의 촉각과 감이 그녀가 범인이라는 걸 말하고 있었다.
-						<br>
-						<br>
-						지금부터 한 시간, 당신은 조사 끝에 알아 낸 그녀의 집에 몰래 들어가
-						<br>
-						사건 전날 밤 일어난 일을 밝혀내고 그녀를 잡을 수 있는 단서를 찾아내야 한다.
+					<p class="book-infomation" th:text="${theme.info}">
 					</p>
 				</div>
 			<div id="bookArea" th:replace="~{/book/date :: dateFragment}"></div>

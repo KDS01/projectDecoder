@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html mxlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/style/main.css">
+</head>
+<body>
+    <div class="main_page_container">
+    <section class="main_section_top"></section>
+    <section class="main_section_content" id="content_sector">
+    </section>
+    <section>
+        <div class="bottom_section">
+            <div class="bottom_content_left">
+            <div class="moving_text_area">
+                <p>
+                <Strong>#code.play</Strong>
+                </p>
+            </div>
+                <h2>
+                    디지털취미관
+                </h2>
+                <h2>
+                    디코더그라운드
+                </h2>
+                <h5>
+                    다양한 분야의 사람들이 모여 재미난 것을 상상하고 제작해보는 메이커 그룹 모임입니다.<br>
+                    디지털아트, 전자예술을 제작해보는 특별한 취미를 원한다면 지금 디코더그라운드그룹이 되어보세요.
+                </h5>
+            </div>
+            <div class="bottom_content_right">
+                <h2>NEW PROGRAM<br>
+                    새롭게 선보이는 프로그램을 확인해보세요.
+                </h2>
+            </div>
+        </div>
+    </section>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    const setSectors= async() =>{
+        await axios.post('/basic/sector')
+        .then(function(response){
+            const data=response.data;
+            data.forEach(theme => {
+				const section=document.getElementById('content_sector');
+                const parents=document.createElement('div');
+                parents.classList.add('content_box');
+                const child_1=document.createElement('div');
+                child_1.classList.add('theme_information');
+                const child_1_1=document.createElement('div');
+                child_1_1.classList.add('theme_title_area');
+                child_1_1.innerHTML=`${theme.title}`;
+                const child_1_2=document.createElement('div');
+                child_1_2.classList.add('theme_time_area');
+                child_1_2.innerHTML="60:00";
+                const child_1_3=document.createElement('div');
+                child_1_3.classList.add('theme_icon_area');
+                const imgs=document.createElement('img');
+                imgs.src=`${theme.icon_img}`;
+                const sector_book_btn=document.createElement('button');
+                sector_book_btn.type="button";
+                sector_book_btn.classList.add('book_btn');
+                sector_book_btn.innerHTML="BOOK NOW";
+                child_1_3.appendChild(imgs);
+                child_1_3.appendChild(sector_book_btn);
+                child_1.appendChild(child_1_1);
+                child_1.appendChild(child_1_2);
+                child_1.appendChild(child_1_3);
+                parents.appendChild(child_1);
+                section.appendChild(parents);
+            });
+        })
+    }
+        setSectors();
+</script>
+</body>
+</html>

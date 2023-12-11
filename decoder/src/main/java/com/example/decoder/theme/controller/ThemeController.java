@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -33,6 +34,10 @@ import jakarta.servlet.http.HttpServletRequest;
 public class ThemeController {
 	@Autowired
 	ThemeService themeService;
+	@GetMapping("/")
+	public String toMainPage() {
+		return "basic/main";
+	}
 //	@Value("${file.upload-dir}")
 //	private String uploadDir;
 //	
@@ -53,10 +58,19 @@ public class ThemeController {
 	public String addThemePage() {
 		return "admin/addtheme";
 	}
-//	@GetMapping("/book")
-//	public String toBookPage() {
-//		return "book/book.html";
-//	}
+	@PostMapping("/basic/header")
+	@ResponseBody
+	public List<Theme> getHeaderList() {
+		List<Theme> list=themeService.getAll();
+		return list;
+	}
+	@PostMapping("/basic/sector")
+	@ResponseBody
+	public List<Theme> getSectorList() {
+		List<Theme> list=themeService.getAll();
+		System.out.println(list);
+		return list;
+	}
     @PostMapping("/admin/addtheme")
     public String addTheme(
             @RequestParam("theme_title") String title,

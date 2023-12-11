@@ -53,6 +53,10 @@
   	});
 	$("#hour_button button").on("click", function(){
 		$("#date_data_hour").val(this.name);
+		axios.post('/book/sendDate').them(function(response){
+			console.log(response.data.title);
+			console.log(response.data.path);
+		})
 	})
 	</script>	
 </div>

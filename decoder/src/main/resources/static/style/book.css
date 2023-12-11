@@ -54,6 +54,9 @@ img{
 .title{
 	font-size: 30px;
 }
+.book-info{
+	padding: 3.5rem;
+}
 .book-infomation{
 	margin-top: 7%;
 	text-align: center;

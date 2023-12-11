@@ -1,5 +1,7 @@
 package com.example.decoder.theme.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,9 @@ public class ThemeService {
 	}
 	public Theme get(int id) {
 		return themeDao.get(id);
+	}
+	public List<Theme> getAll(){
+		return themeDao.getAll();
 	}
 
 }

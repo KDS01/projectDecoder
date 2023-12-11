@@ -42,9 +42,9 @@ public class ThemeDao {
 		String query="select * from projectdecoder.theme where id=?";
 		return jdbcTemplate.queryForObject(query,mapper,id);
 	}
-//	public List<Theme> getAll(){
-//		String query="select"
-//		return jdbcTemplate.queryForObject("", null)
-//	}
+	public List<Theme> getAll(){
+		String query="select * from projectdecoder.theme";
+		return jdbcTemplate.query(query,mapper);
+	}
 
 }
