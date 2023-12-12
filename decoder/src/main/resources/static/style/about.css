@@ -1,0 +1,35 @@
+@charset "UTF-8";
+.movie_container{
+	position: relative;
+	background-size: cover;
+	height: 82vh;
+	width: 100%;
+	}
+.movie_container video{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	
+}
+.text_area_title{
+	position: absolute;
+	top: 20%;
+	left: 28%;
+	color: white;
+	font-size: 35px;
+	
+}
+.text_area_content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.text_area_title p,
+.text_area_content p {
+    margin: 0;
+}
+
+

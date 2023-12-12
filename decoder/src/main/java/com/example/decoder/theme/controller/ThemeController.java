@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,8 +36,19 @@ public class ThemeController {
 	@Autowired
 	ThemeService themeService;
 	@GetMapping("/")
-	public String toMainPage() {
-		return "basic/main";
+	public String toMainPage(Model model) {
+		model.addAttribute("title","Decoder / 디코더");
+		model.addAttribute("content","mainFragment");
+		model.addAttribute("path","/basic/main");
+		return "basic/layout";
+	}
+	@GetMapping("/about")
+	public String toAboutPage(Model model) {
+		model.addAttribute("title","About Decoder");
+		model.addAttribute("content","aboutFragment");
+		model.addAttribute("path","/basic/about");
+		
+		return "basic/layout";
 	}
 //	@Value("${file.upload-dir}")
 //	private String uploadDir;

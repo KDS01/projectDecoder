@@ -6,31 +6,113 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="/style/main.css">
+
 </head>
 <body>
-    <div class="main_page_container">
-    <section class="main_section_top"></section>
+    <div
+    th:fragment="mainFragment"
+     class="main_page_container">
+	  <link rel="stylesheet" type="text/css" href="/style/main.css">
+	<section class="canvas_section">
+		<div class="canvas_container_top">
+			<div class="canvas_text_area">
+				<div class="canvas_title_area">
+					<p class="canvas_title">decoder</p>
+					<p class="canvas_title_down">#code.play</p>
+				</div>
+				<div class="canvas_info_area">
+					<p>+</p>
+					<p>디지털취미관</p>
+					<p>디코더그라운드</p>
+				</div>
+				<div class="canvas_bottom_area">
+					<p>https://www.decoder.kr/</p>
+					<p>/*</p>
+					<p>floor: 3f,4f</p>
+					<p>points: 88-1,</p>
+					<p>maxDistance: wauson-ro,</p>
+					<p>spacing: mapo-gu,</p>
+					<p>location: seoul */</p>
+				</div>
+			</div>
+			<div class="canvas_particle_area">
+				
+			</div>
+			
+		</div>
+		
+	</section>  
+    <section class="main_section_top">
+		<div class="main_section_title">
+			<div style="font-size: 40px;">
+			<p>LET'S CODE PLAY</p>
+			</div>
+			<p style="font-size: 20px;">
+			당신의 특별한 추리력을 깨워보세요
+			</p>
+		</div>
+		<div class="top_section_content">
+			<div class="top_content_left">
+				<div class="content_left_title">
+				<p><Strong>NO LOCK SYSTEM</Strong></p>
+				</div>
+				<p>단 하나의 자물쇠도 사용하지 않았습니다.</p>
+				<p>기존 방탈출이 사용하는 자물쇠 방식과는 다른</p>
+				<p>놀라운 소품을 통한 추리의 재미가 늘어납니다.</p>
+			</div>
+			<div class="top_content_right">
+				<div class="content_right_title">
+				<p><Strong>CODE INTERATION</Strong></p>
+				</div>
+				<p>디지털 인터랙티브 뉴미디어 기획자와 개발자가 만든<br></p>
+				<p>각종 센서와 피지컬 컴퓨팅 방식으로 구성된</p>
+				<p>흥미로운 스토리가 새로운 체험 방식을 제공합니다.</p>
+			</div>
+		</div>
+		
+	</section>
     <section class="main_section_content" id="content_sector">
-    </section>
+
+    <div id="rubato_area" class="content_box_rubato">
+		<div class="theme_information_rubato">
+				<div class="theme_icon_area_rubato">
+					<div class="rubato_info_area">
+					<p class="rubato_title"><Strong>tempo rubato</Strong></p>
+					<div class="theme_time_area">76:24</div>
+					</div>
+					<div class="rubato_btn_area">
+					<button type="button" class="book_btn" onclick="location.href='/book/3';">BOOK NOW</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	 </section>
     <section>
         <div class="bottom_section">
             <div class="bottom_content_left">
             <div class="moving_text_area">
-                <p>
-                <Strong>#code.play</Strong>
-                </p>
+				<div class="moving_text">	
+				</div>
+				<p style="animation: none;">
+                	<Strong id="textColor">#code.play</Strong>
+                </p>				
             </div>
                 <h2>
+					<Strong>
                     디지털취미관
+                    </Strong>
                 </h2>
                 <h2>
+					<Strong>
                     디코더그라운드
+                    </Strong>
                 </h2>
-                <h5>
+            <div class="bottom_bottom_text">
+                <p>
                     다양한 분야의 사람들이 모여 재미난 것을 상상하고 제작해보는 메이커 그룹 모임입니다.<br>
                     디지털아트, 전자예술을 제작해보는 특별한 취미를 원한다면 지금 디코더그라운드그룹이 되어보세요.
-                </h5>
+                </p>
+            </div>
             </div>
             <div class="bottom_content_right">
                 <h2>NEW PROGRAM<br>
@@ -39,14 +121,15 @@
             </div>
         </div>
     </section>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
     const setSectors= async() =>{
         await axios.post('/basic/sector')
         .then(function(response){
             const data=response.data;
             data.forEach(theme => {
+				if(`${theme.id}`!=3){
+				const tracker=document.getElementById('rubato_area');
 				const section=document.getElementById('content_sector');
                 const parents=document.createElement('div');
                 parents.classList.add('content_box');
@@ -66,17 +149,46 @@
                 sector_book_btn.type="button";
                 sector_book_btn.classList.add('book_btn');
                 sector_book_btn.innerHTML="BOOK NOW";
+                sector_book_btn.onclick=function(){
+					location.href=`/book/${theme.id}`;
+				}
                 child_1_3.appendChild(imgs);
                 child_1_3.appendChild(sector_book_btn);
                 child_1.appendChild(child_1_1);
                 child_1.appendChild(child_1_2);
                 child_1.appendChild(child_1_3);
                 parents.appendChild(child_1);
-                section.appendChild(parents);
-            });
+                section.insertBefore(parents,tracker);
+            }});
         })
     }
         setSectors();
+        
+document.addEventListener('DOMContentLoaded', function () {
+    const movingText = document.querySelector('.moving_text');
+    const colorChangingText = document.getElementById('textColor');
+
+    movingText.addEventListener('animationprogress', (event) => {
+        const rect = colorChangingText.getBoundingClientRect();
+        const movingTextRect = movingText.getBoundingClientRect();
+        if (
+            rect.left >= movingTextRect.left &&
+            rect.right <= movingTextRect.right &&
+            rect.top >= movingTextRect.top &&
+            rect.bottom <= movingTextRect.bottom
+        ) {
+            if (event.progress > 0.5) {
+                colorChangingText.style.color = 'white';
+            } else {
+                colorChangingText.style.color = 'black';
+            }
+        } else {
+            colorChangingText.style.color = 'black';
+        }
+    });
+});
 </script>
+</div>
+
 </body>
 </html>
