@@ -6,14 +6,14 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
 </head>
 <body>
     <div
     th:fragment="mainFragment"
      class="main_page_container">
 	  <link rel="stylesheet" type="text/css" href="/style/main.css">
-	<section class="canvas_section">
+
+	<section id="canvas_section" class="canvas_section">
 		<div class="canvas_container_top">
 			<div class="canvas_text_area">
 				<div class="canvas_title_area">
@@ -115,13 +115,22 @@
             </div>
             </div>
             <div class="bottom_content_right">
-                <h2>NEW PROGRAM<br>
+                <p>NEW PROGRAM<br>
                     새롭게 선보이는 프로그램을 확인해보세요.
-                </h2>
+                </p>
+                <div class="bottom_btn_area">
+					<button type="button" id="hobby_btn" onclick="toHobby()">
+						<p>
+						프로그램 둘러보기
+						</p>
+					</button>
+				</div>
             </div>
         </div>
     </section>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.21/vendor/three.r119.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/tengbao/vanta@master/dist/vanta.net.min.js"></script>
 <script>
     const setSectors= async() =>{
         await axios.post('/basic/sector')
@@ -187,6 +196,22 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+function toHobby(){
+	window.location.href="/codeplay";
+}
+	VANTA.NET({
+  		el: "#canvas_section",
+  		mouseControls: true,
+ 		touchControls: false,
+  		gyroControls: true,
+ 		scale: 1.00,
+  		color: 0x111111,
+  		backgroundColor: 0xffffff,
+  		points: 2.70,
+ 		maxDistance: 19.00,
+ 		spacing: 10.00,
+ 		showDots: false
+	})
 </script>
 </div>
 

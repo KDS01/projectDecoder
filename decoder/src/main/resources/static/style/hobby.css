@@ -1,0 +1,135 @@
+@charset "UTF-8";
+.hobby_one, .hobby_two{
+	background-color: black;
+	color: white;
+	padding:400px;
+	padding-bottom: 200px;
+}
+.hobby_two{
+	background-image:url("/img/hobby_back.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	padding-top: 100px;
+	padding-bottom: 100px;
+	position: relative;
+	
+}
+.hobby_two p{
+	filter: none;
+}
+.title{
+	font-size: 50px;
+	font-weight: bold;
+}
+.title_under{
+	font-size: 19px;
+	border-bottom: 2px solid white;
+}
+.title_down{
+	font-size: 15px;
+}
+.two_top{
+	font-weight: bold;
+	font-size: 28px;
+	color: white;
+	padding-bottom: 15px;
+}
+.two_mid{
+	padding-bottom: 20px;
+}
+.two_mid, .two_bottom{
+	font-size: 18px;
+}
+.hobby_mid_sector{
+	padding:300px;
+	padding-bottom: 200px;
+	background-image: url('/img/mid_back.png');
+	background-color: rgba(230,229,225,1);
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+	background-position: left top;
+	background-attachment: fixed;
+}
+.mid_top_text{
+	font-size: 15px;
+	margin-bottom: 30px;
+}
+.hobby_mid_text_sec{
+	font-size: 30px;
+	display: flex;
+}
+.snow_camp{
+	font-size: 80px;
+	font-weight: bold;	
+}
+.snow_under{
+	font-size: 18px;
+}
+.snow_img_area{
+	padding-right: 15px;
+	display: flex;
+	flex-direction: row-reverse;
+
+}
+.mid_source{
+	width: 50% ;
+	height: 60% ;
+	
+}
+.table_zone{
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+}
+.table_zone tr{
+	padding-top:10px;
+	
+}
+.table_zone td{
+	min-width: 160px;
+	padding-right: 15px;
+
+}
+.table_zone p{
+	border-right: 1px solid black;
+}
+.hobby_mid_text_area{
+	padding-top: 50px;
+	font-size: 18px;
+	padding-bottom: 100px;
+	border-bottom: 2px solid black;
+}
+.hobby_mid_text_bottom{
+	padding-top: 10px;
+	font-size: 18px;
+}
+.hobby_bottom_sector{
+	color: white;
+	padding:300px;
+	padding-bottom: 200px;
+	background-image: url('/img/bottom_back.png');
+	background-color: rgba(33,33,33,1);
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+	background-position: left top;
+	background-attachment: fixed;
+}
+.table_zone_black{
+		border-top: 2px solid white;
+	border-bottom: 2px solid white;
+	
+}
+.table_zone_black p{
+	color: white;
+	border-right: 1px solid white;
+	padding-top: 15px;
+}
+.table_zone_black tr{
+	padding-top:10px;
+	
+}
+.table_zone_black td{
+	min-width: 160px;
+	padding-right: 15px;
+
+}

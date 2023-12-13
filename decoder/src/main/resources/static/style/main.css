@@ -1,4 +1,11 @@
-
+@font-face{
+	font-family: 'rubato_title';
+	src: url('/font/Martel-Black.ttf');
+}
+@font-face{
+	font-family:'nixie-one';
+	src:url('/font/NixieOne-Regular.ttf');
+}
 .canvas_section{
 	padding-top: 50px;
 	padding-bottom: 120px;
@@ -67,12 +74,12 @@
 }
 .content_left_title{
 	text-align: center;
-	font-size: 30px;
+	font-size: 45px;
 	padding-bottom: 15px;
 }
 .content_right_title{
 	text-align: center;
-	font-size: 30px;
+	font-size: 45px;
 	padding-bottom: 15px;
 }
 .main_page_container{
@@ -170,7 +177,7 @@ h2{
     }
  }
 .bottom_content_left .moving_text{
-	background-color: black;
+	border: 20px solid black;
 	height: 70%;
 	box-sizing: border-box;
 	min-width: 18%;
@@ -226,21 +233,63 @@ margin-bottom: 30px;
 	margin-top: 200px;
 }
 .rubato_btn_area button{
-	border:3px solid black;
+	border:5px solid black;
 	background-color: white;
 	color: black;
 	font-size: 12px;
 	font-weight: 400;
 	width: 100px;
 	height: 50px;
+	font-weight: bold;
 }
 .rubato_info_area{
 	display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 300px;
+    font-family: 'rubato_title';
 }
 .bottom_bottom_text{
 	font-size: 12px;
+}
+.hobby_bottom_sector{
+	padding:300px;
+	padding-bottom: 200px;
+	background-image: url('/img/bottom_back.png');
+	background-color: rgba(33,33,33,1);
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+	background-position: left top;
+	background-attachment: fixed;
+	
+}
+.bottom_content_right{
+	padding-top: 30px;
+	font-size: 2.5vmin;
+	font-weight: bold;
+	display: flex;
+}
+.bottom_content_right button{
+	color: white;
+	background-color: black;
+	font-size: 20px;	
+}
+.bottom_btn_area{
+	padding-top: 190px;
+	padding-left: 400px;
+}
+.bottom_btn_area p{
+	font-size: 15px;
+	padding: 5px;
+	margin:0;
+}
+.theme_title_area{
+	font-size: 25px;
+}
+.theme_time_area{
+	font-weight: bold;
+}
+.theme_title_area, .theme_time_area{
+	font-family: 'nixie-one';
 }
 	

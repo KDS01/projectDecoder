@@ -6,6 +6,10 @@ html, body{
 	display:flex;
 	flex-direction: column;
 }
+@font-face{
+	font-family:'nixie-one';
+	src:url('/font/NixieOne-Regular.ttf');
+}
 p{
 	align-items: center;
 }
@@ -53,6 +57,7 @@ img{
 }
 .title{
 	font-size: 30px;
+	font-family: 'nixie-one',Arial,sans-serif;
 }
 .book-info{
 	padding: 3.5rem;

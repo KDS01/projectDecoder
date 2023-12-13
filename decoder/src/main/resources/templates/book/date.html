@@ -37,6 +37,12 @@
 		<script src="https://code.jquery.com/jquery-3.6.4.js"></script>
   		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script>
+		function loadFragment(){
+			var bookArea=document.getElementById('bookArea');
+			bookArea.removeAttribute('id');
+			bookArea.setAttribute('id','userArea')
+			bookArea.setAttribute('th:replace','~{/book/user :: userFragment}')
+		}
   		$(function() {
     	$("#datepicker").datepicker({
       	dateFormat: 'yy/mm/dd',
@@ -53,10 +59,7 @@
   	});
 	$("#hour_button button").on("click", function(){
 		$("#date_data_hour").val(this.name);
-		axios.post('/book/sendDate').them(function(response){
-			console.log(response.data.title);
-			console.log(response.data.path);
-		})
+		loadFragment();
 	})
 	</script>	
 </div>

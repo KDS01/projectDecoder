@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html mxlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<div th:fragment="contactFragment">
+		<link rel="stylesheet" href="/style/contact.css">
+		<section class="contact_top_section">
+			<div class="movie_container">
+			<video autoplay loop muted playsinline>
+				<source src="/img/contact_back.mp4" type="video/mp4">
+			</video>
+			
+			<div class="top_text_area">
+				<div class="top_title">
+					<p>Decoder</p>
+				</div>
+				<div class="top_info">
+					<p>
+						서울특별시 마포구 와우산로88-1 3층<br>
+						EMAIL: HELP@DECODER.KR<br>	
+					</p>
+					<p>
+						문의는 메일주소를 통하여 연락 부탁드립니다.
+					</p>
+				</div>
+				<div class="icon_btn area">
+					<div class="icon_area">
+						<i></i>
+					</div>
+					<div class="btn_area">
+						<p>
+							디코더 오는길 검색
+						</p>
+						<button>
+							SEARCH ON NAVER MAP
+						</button>
+					</div>
+				</div>
+			</div>
+			</div>
+		</section>
+		<div class="google_map_API">
+			<div id="map">
+				    <gmp-map center="37.552188873291016,126.9239273071289" zoom="14" map-id="DEMO_MAP_ID">
+     					<gmp-advanced-marker position="37.552188873291016,126.9239273071289" title="My location">
+      					</gmp-advanced-marker>
+    				</gmp-map>
+			</div>
+		</div>
+		<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAf_T5tnG9lT8a1GnXdNHGSmrNcVgccBeM&callback=initMap"></script>
+		<script>
+			window.initMap =function(){
+				  const map = new google.maps.Map(document.getElementById("map"), {
+    				center:{lat:37.552188873291016,lng:126.9239273071289},
+    				zoom: 14
+			});
+		};
+		</script>
+	</div>
+</body>
+</html>

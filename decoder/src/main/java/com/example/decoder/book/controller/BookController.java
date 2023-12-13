@@ -27,13 +27,9 @@ public class BookController {
 	ThemeService themeService;
 	@PostMapping("/book/sendDate")
 	@ResponseBody
-	public Map<String, String> getDateData(@RequestParam Map<String,String> data) {
-		Map<String, String> model=new HashMap<String, String>();
-		model.put("title", "book theme");
-		model.put("path", "/book/book");
-		model.put("content", "bookFragment");
+	public Map<String, Object> getDateData(@RequestParam Map<String,String> data) {
+		Map<String, Object> model=new HashMap<String, Object>();
 		model.put("userArea", "userFragment");
-		model.put("contentHead", "bookFragmentHead");
 		return model;
 	}
 //	@GetMapping("/book")
@@ -54,6 +50,7 @@ public class BookController {
 		model.addAttribute("path","/book/book");
 		model.addAttribute("content","bookFragment");
 		model.addAttribute("bookArea","dateFragment");
+		model.addAttribute("userArea", "userFragment");
 		model.addAttribute("contentHead","bookFragmentHead");
 		model.addAttribute("theme",theme);
 		return "/basic/layout";

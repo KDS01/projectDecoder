@@ -70,6 +70,17 @@ public class ThemeController {
 	public String addThemePage() {
 		return "admin/addtheme";
 	}
+	@GetMapping("/codeplay")
+	public String toHobbyPage(Model model) {
+		model.addAttribute("title","codePlay - Decoder/ 디코더");
+		model.addAttribute("content","hobbyFragment");
+		model.addAttribute("path","/basic/hobby");
+		return "basic/layout";
+	}
+	@GetMapping("/contact")
+	public String toContactPage() {
+		return "basic/contact";
+	}
 	@PostMapping("/basic/header")
 	@ResponseBody
 	public List<Theme> getHeaderList() {
