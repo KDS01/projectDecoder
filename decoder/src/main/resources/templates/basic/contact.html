@@ -27,14 +27,16 @@
 				</div>
 				<div class="icon_btn area">
 					<div class="icon_area">
-						<i></i>
+						<img src="/img/icon.png">
 					</div>
 					<div class="btn_area">
 						<p>
 							디코더 오는길 검색
 						</p>
-						<button>
+						<button class="naver_btn">
+							<p>
 							SEARCH ON NAVER MAP
+							</p>
 						</button>
 					</div>
 				</div>
@@ -51,12 +53,28 @@
 		</div>
 		<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAf_T5tnG9lT8a1GnXdNHGSmrNcVgccBeM&callback=initMap"></script>
 		<script>
+			let marker;
+			const markerlng={lat:37.552188873291016,lng:126.9239273071289};
 			window.initMap =function(){
 				  const map = new google.maps.Map(document.getElementById("map"), {
     				center:{lat:37.552188873291016,lng:126.9239273071289},
     				zoom: 14
 			});
+			marker=new google.maps.Marker({
+				map,
+				draggable:false,
+				animation:google.maps.Animation.BOUNCE,
+				position:{lat:37.552188873291016,lng:126.9239273071289},
+			});
+			setInterval(toggle,50);
 		};
+		function toggle(){
+			if(marker.getAnimation()!=null){
+				marker.setAnimation(null);
+			}else{
+				marker.setAnimation(google.maps.Animation.BOUNCE);
+			}
+		}
 		</script>
 	</div>
 </body>

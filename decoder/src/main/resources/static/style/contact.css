@@ -41,7 +41,7 @@ body{
   transform: translate(-50%, -50%);
   text-align: center;
   color: white;
-  padding-top: 50px;
+  padding-top: 200px;
 }
 .top_text_area p{
 	text-align: center;
@@ -56,6 +56,26 @@ body{
 	font-weight: bold;
 	font-family: 'lato',Arial,sans-serif;
 }
+.icon_area{
+	padding-bottom: 20px;
+}
+.btn_area{
+	font-size: 18px;
+	font-weight: 600;
+}
+.btn_area button{
+	background-color: 0;
+	color: white;
+	border: 3px solid white;
+}
+.naver_btn p{
+	font-size: 12px;
+	font-weight: 600;
+	padding: 15px;
+	margin: 0;
+	
+}
+
 .google_map_API{
 	height: 45vh;
 	width: 100%;

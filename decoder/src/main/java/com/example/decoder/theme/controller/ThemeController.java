@@ -78,8 +78,11 @@ public class ThemeController {
 		return "basic/layout";
 	}
 	@GetMapping("/contact")
-	public String toContactPage() {
-		return "basic/contact";
+	public String toContactPage(Model model) {
+		model.addAttribute("title","Contact - Decoder / 디코더");
+		model.addAttribute("content","contactFragment");
+		model.addAttribute("path","/basic/contact");
+		return "basic/layout";
 	}
 	@PostMapping("/basic/header")
 	@ResponseBody
