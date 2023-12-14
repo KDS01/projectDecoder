@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html mxlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div th:fragment="registFragment">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/style/admin.css">
+	<div class="add_theme_container"> 
+    	<h1 class="main_text" style="text-align: center;">add Manager</h1>
+   		<div class="theme_add_input_group">
+       	 <form action="/admin/regist" method="post">
+            <div class="input-group mb-3">
+             	<span class="input-group-text" id="inputGroup-sizing-default">매니저 ID</span>
+             	<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"name="user_id">
+             </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">password</span>
+                <input type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="user_password">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">매니저 이름</span>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"name="name">
+            </div>
+         </div>
+            <button type="submit" class="btn btn-primary">매니저 등록</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

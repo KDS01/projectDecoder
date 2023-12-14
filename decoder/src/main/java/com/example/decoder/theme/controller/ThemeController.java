@@ -50,25 +50,13 @@ public class ThemeController {
 		
 		return "basic/layout";
 	}
-//	@Value("${file.upload-dir}")
-//	private String uploadDir;
-//	
-	@GetMapping("/admin")
-	public String adminPage() {
-		return "admin/index";
-	}
 	@GetMapping("/basic/header")
 	public String getHeader(){
 		return "basic/header.html";
-		
 	}
 	@GetMapping("/basic/footer")
 	public String getFooter(){
 		return "basic/footer.html";
-	}
-	@GetMapping("/admin/addtheme")
-	public String addThemePage() {
-		return "admin/addtheme";
 	}
 	@GetMapping("/codeplay")
 	public String toHobbyPage(Model model) {

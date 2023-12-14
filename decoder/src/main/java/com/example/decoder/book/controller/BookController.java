@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.example.decoder.book.domain.Book;
 import com.example.decoder.book.service.BookService;
 import com.example.decoder.theme.domain.Theme;
 import com.example.decoder.theme.service.ThemeService;
@@ -29,6 +30,7 @@ public class BookController {
 	@ResponseBody
 	public Map<String, Object> getDateData(@RequestParam Map<String,String> data) {
 		Map<String, Object> model=new HashMap<String, Object>();
+		model.put("path","/book/user");
 		model.put("userArea", "userFragment");
 		return model;
 	}
@@ -55,5 +57,12 @@ public class BookController {
 		model.addAttribute("theme",theme);
 		return "/basic/layout";
 	}
+	@PostMapping("/book/userdata")
+	@ResponseBody
+	public String bookTheme(@RequestParam Map<String,String> data) {
+		Book book=new Book();
+		book.setBooked_time(data.get("booked_time"));
+	}
+	
 
 }

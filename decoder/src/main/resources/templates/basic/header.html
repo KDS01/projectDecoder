@@ -33,7 +33,7 @@
               </li>
             </ul>
           </div>
-          <div class="navbar_right-icon">
+          <div class="navbar_right-icon" id="to_admin_page">
             <img src="/img/decoder_smallver.gif" alt="" class="navbar-logo">
 
           </div>
@@ -66,6 +66,9 @@
         })
     }
     getThemelist();
+    document.getElementById('to_admin_page').onclick=function(){
+		window.location.href="/admin";
+	}
 
    </script>
   </div>

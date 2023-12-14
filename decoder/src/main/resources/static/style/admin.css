@@ -57,3 +57,22 @@
     width: 500px;
     height: 50px;
 }
+.ck {
+    max-height: 300px; 
+    overflow: auto; 
+	}
+.ck-content {
+    max-height: 300px; 
+    overflow: auto; 
+	}
+.ck-editor__editable {
+	max-width: 50%;
+    max-height: 100%; 
+    overflow: auto;
+    border:none;
+	}
+.ck-editor__editable_inline {
+    max-height: 300px;
+    overflow: auto;
+    display: none;
+	}
