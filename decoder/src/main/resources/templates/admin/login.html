@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>관리자 로그인</title>
+	<style>
+		.login_container {
+			background-color: gray;
+			margin: 50px;
+
+		}
+
+		.admin_login {
+			display: flex;
+			justify-content: center;
+			background-color: gray;
+			height: 100vh;
+			overflow: hidden;
+		}
+		h1{
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+	<section class="admin_login">
+		<div class="login_container">
+			<h1>admin login</h1>
+			<form id="login_form" action="/admin/login" method="post">
+				<input type="text" id="admin_id" placeholder="관리자 아이디" name="user_id">
+				<input type="password" id="admin_password" placeholder="비밀번호" name="user_password">
+				<button id="submit" type="button">로그인</button>
+			</form>
+		</div>
+	</section>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script>
+		document.getElementById('submit').onclick = () => {
+			var adminId = document.getElementById('admin_id').value;
+			var adminPassword = document.getElementById('admin_password').value;
+			var formdata=new FormData(document.getElementById('login_form'));
+			if (adminId != "" &&
+				adminPassword != "") {
+				axios.post('/admin/login',formdata)
+					.then(function (response) {
+						console.log(response.data);
+						window.location.href="/admin"
+					}).catch(function(error){
+						console.log(error);
+					})
+			} else {
+				alert('아이디와 비밀번호를 입력해주세요')
+			}
+		}
+	</script>
+</body>
+
+</html>

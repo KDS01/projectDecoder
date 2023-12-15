@@ -23,7 +23,7 @@ public class BookDao {
 			return new Book(
 					rs.getInt("id"),
 					rs.getString("booked_time"),
-					rs.getDate("booked_date"),
+					rs.getString("booked_date"),
 					rs.getString("booked_name"),
 					rs.getString("phone"),
 					rs.getString("email"),
@@ -57,11 +57,10 @@ public class BookDao {
 				);
 	}
 	public Book get(int id) {
-		String query="select a.*,b.* from projectdecoder.booked_time a"
-				+ "join projectdecoder.theme_timelines b on a.booked_theme=b.theme_id where a.id=?";
+		String query="SELECT * FROM projectdecoder.booked_time where id=?";
 		return jdbcTemplate.queryForObject(query,mapper,id);
 	}
-	public List<Book> getDateBook(Date date){
+	public List<Book> getDateBook(String date){
 		String query="select * from projectdecoder.booked_time where booked_date =?";
 		return jdbcTemplate.query(query,mapper,date);
 	}
@@ -72,5 +71,7 @@ public class BookDao {
 	public void bookCancel(int id) {
 		jdbcTemplate.update("delete from projectdecoder.booked_time where id=?",id);
 	}
-
+	public List<Book> searchBook(int theme_id,String Booked_date){
+		return jdbcTemplate.query("select * from projectdecoder.booked_time where booked_theme=? AND booked_date=?",new Object[] {theme_id,Booked_date},mapper);
+	}
 }

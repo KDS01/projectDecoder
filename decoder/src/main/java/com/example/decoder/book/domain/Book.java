@@ -17,7 +17,7 @@ public class Book {
 	@NonNull
 	private String booked_time;
 	@NonNull
-	private Date booked_date;
+	private String booked_date;
 	@NonNull
 	private String booked_name;
 	@NonNull
@@ -26,5 +26,5 @@ public class Book {
 	private String email;
 	private int people_count;
 	private int booked_theme;
-	private int timeLine_id;
+	private int timeLine_id=1;
 }

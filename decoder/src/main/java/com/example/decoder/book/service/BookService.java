@@ -20,7 +20,7 @@ public class BookService {
 	public Book get(int id) {
 		return bookDao.get(id);
 	}
-	public List<Book> getBooktoDate(Date date){
+	public List<Book> getBooktoDate(String date){
 		return bookDao.getDateBook(date);
 	}
 	public List<Book> getBooktotheme(int theme_id){
@@ -28,5 +28,8 @@ public class BookService {
 	}
 	public void bookCancel(int id) {
 		bookDao.bookCancel(id);
+	}
+	public List<Book> searchBook(int theme_id,String booked_date){
+		return bookDao.searchBook(theme_id, booked_date);
 	}
 }

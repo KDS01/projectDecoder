@@ -2,6 +2,7 @@ package com.example.decoder.book.controller;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,7 +62,35 @@ public class BookController {
 	@ResponseBody
 	public String bookTheme(@RequestParam Map<String,String> data) {
 		Book book=new Book();
-		book.setBooked_time(data.get("booked_time"));
+		System.out.println(data.get("booked_date"));
+		book.setBooked_time(data.get("booked_hour"));
+		book.setBooked_date(data.get("booked_date"));
+		book.setBooked_name(data.get("booked_name"));
+		book.setPhone(data.get("booked_phone"));
+		book.setEmail(data.get("booked_email"));
+		book.setPeople_count(Integer.parseInt(data.get("booked_count")));
+		book.setBooked_theme(Integer.parseInt(data.get("booked_theme_id")));
+		book.setTimeLine_id(Integer.parseInt(data.get("booked_timeline")));
+		bookService.add(book);
+		return "{result : book successed}";
+	}
+	@GetMapping("/admin/{theme_id}")
+	public String adminBookPage(@PathVariable("theme_id")int theme_id,Model model) {
+		Theme theme=themeService.get(theme_id);
+		model.addAttribute("title",theme.getTitle()+"예약 정보");
+		model.addAttribute("path","/admin/bookmanage");
+		model.addAttribute("content","bookManageFragment");
+		model.addAttribute("theme",theme);
+		return "/admin/adminLayout";
+	}
+	@PostMapping("/admin/bookList")
+	@ResponseBody
+	public List<Book> setBookList(@RequestParam Map<String,String> map){
+		int themeId=Integer.parseInt(map.get("booked_theme"));
+		String bookedDate=map.get("booked_time").replace("/", "");
+		List<Book> list=bookService.searchBook(themeId, bookedDate);
+		return list;
+		
 	}
 	
 

@@ -1,42 +1,56 @@
 <!DOCTYPE html>
 <html mxlns:th="http://www.thymeleaf.org" lang="ko">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>admin page</title>
+	<title>admin page</title>
 </head>
-<body>
-<div th:fragment="adminFragment">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/style/admin.css">
-<div class="container">
-    <div class="admin_page_main">
-        <div class="card" style="width: 18rem;">
-            <img src="/img/room1-2-960x960.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text" style="border-bottom: 1px solid;">introverted theif</p>
-              <p class="card-text">여자방</p>
-            </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-            <img src="/img/ROOM2-1-960x960.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text" style="border-bottom: 1px solid;">furious revenge</p>
-              <p class="card-text">남자방</p>
-            </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-            <img src="/img/poster_rubato_square.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text" style="border-bottom: 1px solid;">tempo rubato</p>
-              <p class="card-text">템포 루바토</p>
-            </div>
-        </div>
-    </div>
 
-</div>
-</div>
+<body>
+	<div th:fragment="adminFragment">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+			integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+			crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="/style/admin.css">
+		<div class="container">
+			<div id="admin_page_main" class="admin_page_main">
+
+			</div>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		<script>
+			const setCard = async () => {
+				await axios.post('/admin/card')
+					.then(function (response) {
+						const section = document.getElementById('admin_page_main');
+						const data = response.data;
+						data.forEach(theme => {
+							const parents = document.createElement('div');
+							parents.classList.add('card');
+							parents.style.width = '18rem';
+							const child_img = document.createElement('img');
+							child_img.classList.add('card-img-top');
+							child_img.src = `${theme.main_img}`
+							const child_child = document.createElement('div');
+							child_child.classList.add('card-body');
+							cc_p1 = document.createElement('p');
+							cc_p1.classList.add('card-text');
+							cc_p1.innerHTML = `${theme.title}`;
+							child_child.appendChild(cc_p1);
+							parents.appendChild(child_img);
+							parents.appendChild(child_child);
+							section.appendChild(parents);
+						})
+					})
+			}
+			setCard();
+		</script>
+	</div>
+
 </body>
+
 </html>

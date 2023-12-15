@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html mxlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+</head>
+
+<body>
+	<div th:fragment="timeLinesFragment">
+		<div class="timeLineContainer">
+			<link rel="stylesheet" href="/style/setTimeLine.css">
+			<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+			<form action="/admin/setTimeLines" method="post">
+				<div class="input-group flex-nowrap">
+					<span class="input-group-text" id="addon-wrapping">타임라인 이름</span>
+					<input type="text" name="timeline_name" class="form-control" placeholder="표기는 자유롭게 하되, 제목으로 알아 볼 수 있게 적는걸 추천합니다 ex)10:00~20:00//간격:2시간"
+						aria-label="Username" aria-describedby="addon-wrapping">
+				</div>
+				<div class="input-group flex-nowrap">
+					<span class="input-group-text" id="addon-wrapping">타임라인 첫번째 시간</span>
+					<input type="text" name="first_time" class="form-control" placeholder="ex)12:00"
+						aria-label="Username" aria-describedby="addon-wrapping">
+				</div>
+				<div class="input-group flex-nowrap">
+					<span class="input-group-text" id="addon-wrapping">타임라인 두번째 시간</span>
+					<input type="text" name="sec_time" class="form-control" placeholder="ex)12:00"
+						aria-label="Username" aria-describedby="addon-wrapping">
+				</div>
+				<div class="input-group flex-nowrap">
+					<span class="input-group-text" id="addon-wrapping">타임라인 세번째 시간</span>
+					<input type="text" name="third_time" class="form-control" placeholder="ex)12:00"
+						aria-label="Username" aria-describedby="addon-wrapping">
+				</div>
+				<div class="input-group flex-nowrap">
+					<span class="input-group-text" id="addon-wrapping">타임라인 네번째 시간</span>
+					<input type="text" name="fourth_time" class="form-control" placeholder="ex)12:00"
+						aria-label="Username" aria-describedby="addon-wrapping">
+				</div>
+				<div class="input-group flex-nowrap">
+					<span class="input-group-text" id="addon-wrapping">타임라인 다섯번째 시간</span>
+					<input type="text" name="fifth_time" class="form-control" placeholder="ex)12:00"
+						aria-label="Username" aria-describedby="addon-wrapping">
+				</div>
+				<div class="input-group flex-nowrap">
+					<span class="input-group-text" id="addon-wrapping">타임라인 여섯번째 시간</span>
+					<input type="text" name="six_time" class="form-control" placeholder="ex)12:00"
+						aria-label="Username" aria-describedby="addon-wrapping">
+				</div>
+				<button type="submit" class="btn btn-secondary">타임라인 추가하기</button>
+			</form>
+		</div>
+	</div>
+
+</body>
+
+</html>
