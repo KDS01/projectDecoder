@@ -34,7 +34,7 @@ public class BookDao {
 		}
 	};
 	public void add(Book book) {
-		jdbcTemplate.update("insert into projectDecoder.booked_time"
+		jdbcTemplate.update("insert into projectdecoder.booked_time"
 				+ "(id,"
 				+ "booked_time,"
 				+ "booked_date,"
@@ -68,8 +68,8 @@ public class BookDao {
 		String query="select * from projectdecoder.booked_time where booked_theme =?";
 		return jdbcTemplate.query(query,mapper,theme_Id);
 	}
-	public void bookCancel(int id) {
-		jdbcTemplate.update("delete from projectdecoder.booked_time where id=?",id);
+	public void bookCancel(String name,String booked_date,String booked_time) {
+		jdbcTemplate.update("delete from projectdecoder.booked_time where booked_name=? and booked_date=? and booked_time=?",name,booked_date,booked_time);
 	}
 	public List<Book> searchBook(int theme_id,String Booked_date){
 		return jdbcTemplate.query("select * from projectdecoder.booked_time where booked_theme=? AND booked_date=?",new Object[] {theme_id,Booked_date},mapper);

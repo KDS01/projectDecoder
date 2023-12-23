@@ -21,5 +21,8 @@ public class ThemeService {
 	public List<Theme> getAll(){
 		return themeDao.getAll();
 	}
+	public void delete(int id) {
+		themeDao.delete(id);
+	}
 
 }

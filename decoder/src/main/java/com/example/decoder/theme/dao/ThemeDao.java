@@ -46,5 +46,9 @@ public class ThemeDao {
 		String query="select * from projectdecoder.theme";
 		return jdbcTemplate.query(query,mapper);
 	}
+	public void delete(int id) {
+		String query="delete from projectdecoder.theme where id =?";
+		jdbcTemplate.update(query,id);
+	}
 
 }

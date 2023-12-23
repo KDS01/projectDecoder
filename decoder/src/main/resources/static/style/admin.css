@@ -37,7 +37,8 @@
 .add_theme_container{
     background-color: gray;
     color: white;
-    height: 100vh;
+    height: 100%;
+    min-height: 100vh;
     display: flex;
     border-top: 5rem;
     flex-direction: column;

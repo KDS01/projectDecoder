@@ -52,7 +52,7 @@
 				<div class="mb-3" style="padding: 1rem;">
 					<label for="basic-url" class="form-label">전화번호(Phone)</label>
 					<div class="input-group">
-						<input type="text" id="input_booked_phone" class="form-control" placeholder="010-0000-0000"
+						<input type="number" id="input_booked_phone" class="form-control" placeholder="010-0000-0000" oninput="checkInputValue(this)"
 							aria-describedby="basic-addon3 basic-addon4">
 					</div>
 					<div class="form-text" id="basic-addon4">전화번호를 적어주세요</div>
@@ -198,13 +198,18 @@
 						}).catch(function (error) {
 							console.log('error', error);
 						})
-				}else{
+				} else {
 					alert('필수 입력 정보를 모두 기입해주세요')
 				}
 			}
 			function peopleCount(radio) {
 				var input = document.getElementById('date_data_count');
 				input.value = radio.value;
+			}
+			function checkInputValue(input) {
+				if (isNaN(input.value)) {
+					input.value = '';
+				}
 			}
 		</script>
 	</div>

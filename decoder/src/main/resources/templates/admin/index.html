@@ -31,6 +31,9 @@
 						data.forEach(theme => {
 							const parents = document.createElement('div');
 							parents.classList.add('card');
+							parents.addEventListener('click', function(){
+								window.location.href=`/admin/${theme.id}`
+							})
 							parents.style.width = '18rem';
 							const child_img = document.createElement('img');
 							child_img.classList.add('card-img-top');

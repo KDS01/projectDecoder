@@ -6,3 +6,7 @@
 .search_area{
 	max-width: 50%;
 }
+.title_area{
+	display: flex;
+	flex-direction: row;
+}

@@ -26,8 +26,8 @@ public class BookService {
 	public List<Book> getBooktotheme(int theme_id){
 		return bookDao.getThemeBook(theme_id);
 	}
-	public void bookCancel(int id) {
-		bookDao.bookCancel(id);
+	public void bookCancel(String name, String booked_date, String booked_time) {
+		bookDao.bookCancel(name,booked_date,booked_time);
 	}
 	public List<Book> searchBook(int theme_id,String booked_date){
 		return bookDao.searchBook(theme_id, booked_date);

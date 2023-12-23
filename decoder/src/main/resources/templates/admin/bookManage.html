@@ -15,13 +15,19 @@
 			crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="/style/bookManage.css">
 		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-		<div class="book_manage_container">
+		<div class="book_manage_container">	
 			<div class="search_area">
 				<form id="data_area">
 					<input type="hidden" id="data_theme" name="booked_theme" th:value="${theme.id}">
 					<input type="hidden" id="data_time" name="booked_time">
 				</form>
+				<div class="title_area">
 				<h1 th:text="${theme.title}"></h1>
+				<form action="/admin/deleteTheme" method="post">
+				<input type="hidden" name="theme_id" th:value="${theme.id}">
+				<button type="submit" class="btn btn-danger">테마 삭제하기</button>
+				</form>
+				</div>
 				<div id="datepicker"></div>
 
 
@@ -51,6 +57,9 @@
 						.then(function(response){
 							const data=response.data;
 							data.forEach(book=>{
+								const bookform=document.createElement('form');
+								bookform.action="/admin/bookCancel";
+								bookform.method="post";
 								const topul =document.createElement('ul');
 								topul.innerHTML=`예약일자 : ${book.booked_date}`
 								const username=document.createElement('li');
@@ -64,8 +73,32 @@
 								topul.appendChild(peoples);
 								const phone = document.createElement('li');
 								phone.innerHTML=`전화번호 : ${book.phone}`;
+								const submit_name=document.createElement('input');
+								submit_name.type="hidden";
+								submit_name.name="name";
+								submit_name.value=`${book.booked_name}`;
+								const submit_date=document.createElement('input');
+								submit_date.type="hidden";
+								submit_date.name="date";
+								submit_date.value=`${book.booked_date}`;
+								const submit_time=document.createElement('input');
+								submit_time.type="hidden";
+								submit_time.name="booked_time";
+								submit_time.value=`${book.booked_time}`;								
+								const deletebtn=document.createElement('button');
+								deletebtn.innerHTML="예약 취소";
+								deletebtn.type="submit";
+								deletebtn.classList.add('btn');
+								deletebtn.classList.add('btn-danger');
+								deletebtn.id="book_cancel";
 								topul.appendChild(phone);
-								sector.appendChild(topul);
+								bookform.appendChild(topul);
+								bookform.appendChild(deletebtn);
+								bookform.appendChild(submit_name);
+								bookform.appendChild(submit_date);
+								bookform.appendChild(submit_time);
+								sector.appendChild(bookform);
+								
 							})
 						})
 					}

@@ -35,17 +35,6 @@ public class BookController {
 		model.put("userArea", "userFragment");
 		return model;
 	}
-//	@GetMapping("/book")
-//	public String boardMainPage(Model model) {
-//		model.addAttribute("title", "book theme");
-//		model.addAttribute("path", "/book/book");
-//		model.addAttribute("content", "bookFragment");
-//		model.addAttribute("bookArea", "dateFragment");
-//		model.addAttribute("contentHead", "bookFragmentHead");
-//		return "/basic/layout";
-//	}
-	
-	//view 수정후 사용할것
 	@GetMapping("/book/{theme_id}")
 	public String BookPage(@PathVariable("theme_id")int theme_id,Model model) {
 		Theme theme=themeService.get(theme_id);
@@ -78,7 +67,7 @@ public class BookController {
 	public String adminBookPage(@PathVariable("theme_id")int theme_id,Model model) {
 		Theme theme=themeService.get(theme_id);
 		model.addAttribute("title",theme.getTitle()+"예약 정보");
-		model.addAttribute("path","/admin/bookmanage");
+		model.addAttribute("path","/admin/bookManage");
 		model.addAttribute("content","bookManageFragment");
 		model.addAttribute("theme",theme);
 		return "/admin/adminLayout";
@@ -90,7 +79,14 @@ public class BookController {
 		String bookedDate=map.get("booked_time").replace("/", "");
 		List<Book> list=bookService.searchBook(themeId, bookedDate);
 		return list;
-		
+	}
+	@PostMapping("/admin/bookCancel")
+	public String bookCancel(@RequestParam Map<String,String> map){
+		String name=map.get("name");
+		String date=map.get("date").replace("-", "");
+		String booked_time=map.get("booked_time");
+		bookService.bookCancel(name, date, booked_time);
+		return "redirect:/admin";
 	}
 	
 

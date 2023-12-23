@@ -17,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -102,41 +103,12 @@ public class ThemeController {
 		themeService.add(theme);
         return "redirect:/admin";
     }
-//	private String uploadImg(MultipartFile file,String type) throws IOException{
-//		if(!file.isEmpty()) {
-//		Path uploadPath=Paths.get(uploadDir);
-//		if(!uploadPath.toFile().exists()) {
-//			uploadPath.toFile().mkdirs();
-//		}
-//		String fileName=type + "_" + System.currentTimeMillis() + "_"+file.getOriginalFilename();
-//		Path filePath=uploadPath.resolve(fileName);
-//		file.transferTo(filePath.toFile());
-//		return filePath.toString();
-//		}
-//		return null;
-//	}
-//    @PostMapping("/admin/addtheme/img")
-//    @ResponseBody
-//	public String uploadImg(MultipartFile request) {
-//		try {
-//			String originName = request.getOriginalFilename();
-//			String[] tempNames=originName.split("[.]");
-//			String ext="." + tempNames[tempNames.length-1];
-//			String randomize = UUID.randomUUID()+ext;
-//			
-//			String savePath="C:\\Users\\KGA\\git\\projectDecoder\\decoder\\src\\main\\resources\\static\\img\\"+randomize;
-//			String uploadUrl = "/imgs/" + randomize;
-//			File file =new File(savePath);
-//			request.transferTo(file);
-//			System.out.println(uploadUrl);
-//			return uploadUrl;
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//			e.printStackTrace();
-//			return null;
-//		}
-//	}
-
+    @PostMapping("/admin/deleteTheme")
+    public String deleteTheme(@RequestParam Map<String,String> map) {
+    	int theme_id=Integer.parseInt(map.get("theme_id"));
+    	themeService.delete(theme_id);
+    	return "redirect:/admin";
+    }
     @PostMapping("/admin/addtheme/img")
     @ResponseBody
     public Map<String,String> uploadImg(@RequestParam("upload") MultipartFile file) {
@@ -149,10 +121,10 @@ public class ThemeController {
                 return null;
             }
 
-            String uploadDir = "C:\\Users\\KGA\\git\\projectDecoder\\decoder\\src\\main\\resources\\static\\img\\";
-            
+           String uploadDir = "/home/ubuntu/apache-tomcat-10.1.17/webapps/ROOT/WEB-INF/classes/static/img/";
+//            String uploadDir = "C:\\Users\\KGA\\git\\projectDecoder\\decoder\\src\\main\\resources\\static\\img\\";
             String originalFileName = file.getOriginalFilename();
-            String[] fileNameArray = originalFileName.split("\\.");
+            String[] fileNameArray = originalFileName.split("[.]");
             String extension = fileNameArray[fileNameArray.length - 1];
 
             String randomFileName = UUID.randomUUID() + "." + extension;

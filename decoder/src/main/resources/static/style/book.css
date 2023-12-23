@@ -6,6 +6,14 @@ html, body{
 	display:flex;
 	flex-direction: column;
 }
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
 @font-face{
 	font-family:'nixie-one';
 	src:url('/font/NixieOne-Regular.ttf');
